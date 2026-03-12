@@ -3,7 +3,10 @@ package StepDefinition20;
 import org.openqa.selenium.WebDriver;
 
 import PageFactory20.CreateCustomerPage;
+import PageFactory20.CreateNewAccountPage;
+import PageFactory20.FundsTransferPage;
 import PageFactory20.LoginPage;
+import PageFactory20.LogoutPage;
 import Utilities.BaseClass;
 import Utilities.CommonFunctions;
 import io.cucumber.java.en.Given;
@@ -15,10 +18,12 @@ public class StepDefinition20 extends BaseClass {
 	WebDriver driver = BaseClass.initializeDriver();
 	LoginPage loginpage = new LoginPage(driver);
 	CreateCustomerPage createnewcustomer = new CreateCustomerPage(driver);
-	
+	CreateNewAccountPage newaccount = new CreateNewAccountPage(driver);
+	FundsTransferPage transferfund = new FundsTransferPage(driver);
+	LogoutPage logoutpage = new LogoutPage(driver);
 
 	
-
+   // Login cucumber shells 
 	@Given("user opens the login page of the application")
 	public void user_opens_the_homepage_of_the_application() {
 	    
@@ -39,10 +44,14 @@ public class StepDefinition20 extends BaseClass {
 	   loginpage.enterUserName(username);
 	}
 	
+	@Given("user enters password as {string}")
+	public void user_enters_password_as(String password) {
+		loginpage.enterPassword(password);
+	}
+	
 	@Given("user enters the password as {string}")
 	public void user_enters_the_password_as(String password) {
-		
-	    loginpage.enterPassword(password);
+		loginpage.enterPassword(password);
 	}
 	
 	@When("user clicks on the login button")
@@ -69,6 +78,7 @@ public class StepDefinition20 extends BaseClass {
 	
 
 
+	// Create new Customer cucumber shells 
 	@Then("user clicks on the new Customer link")
 	public void user_clicks_on_the_new_customer_link() {
 		createnewcustomer.clickOnNewCustomer();
@@ -119,8 +129,8 @@ public class StepDefinition20 extends BaseClass {
 		createnewcustomer.enterEmail();
 	}
 	
-	@Then("user enters password as {string}")
-	public void user_enters_password_as(String password) {
+	@Then("user enters the password as1 {string}")
+	public void user_enters_the_password_as1(String password) {
 		createnewcustomer.enterPassword(password);
 	}
 
@@ -139,6 +149,127 @@ public class StepDefinition20 extends BaseClass {
 		 String customerID = createnewcustomer.getCustomerID();
 		 System.out.println("Customer ID generated is " + customerID);
 	}
+	
+	
+	
+	// Create new Account cucumber shells 
+@Then("user clicks on new account link")
+public void user_clicks_on_new_account_link() {
+	newaccount.clickOnNewAccountLink();
+}
+
+@Then("user enters customer id")
+public void user_enters_customer_id(String cID) {
+	newaccount.enterCustomerID(cID);
+}
+
+@Then("user selects the account type")
+public void user_selects_the_account_type(String savings) {
+	newaccount.selectAccountType(savings);
+}
+
+@Then("user enters the initial deposit amount")
+public void user_enters_the_initial_deposit_amount(String amount) {
+	newaccount.enterInitialDeposit(amount);
+}
+
+@Then("validate user can see the new account information is displayed")
+public void validate_user_can_see_the_new_account_information_is_displayed() {
+    
+	String newAccountPageTitle = getTitle();
+	System.out.println(newAccountPageTitle);
+	
+	if(newAccountPageTitle.contains("Created Account details")) {
+		
+		System.out.println("A new account is created");
+	}
+	else {
+		throw new NullPointerException("No account created");
+	}
+}
+
+	
+	
+// Make funds transfer cucumber shells 
+@Then("user clicks Fund Transfer link")
+public void user_clicks_fund_transfer_link() {
+	transferfund.clickOnTransferButton();
+}
+
+@Then("user enters Payers account no")
+public void user_enters_payers_account_no(String payerid) {
+	transferfund.enterPayerID(payerid);
+}
+
+@Then("user enters Payees account no")
+public void user_enters_payees_account_no(String payeeid) {
+	transferfund.enterPayeeID(payeeid);
+}
+
+@Then("user enters amount")
+public void user_enters_amount(String amount) {
+	transferfund.enterTransferAmount(amount);
+}
+
+@Then("user enters description")
+public void user_enters_description(String desc) {
+	transferfund.enterTrasferDescription(desc);
+}
+
+@Then("validate user can see fund transfer details is displayed")
+public void validate_user_can_see_fund_transfer_details_is_displayed() {
+	String fundTransferPageTitle = getTitle();
+	System.out.println(fundTransferPageTitle);
+	
+	if(fundTransferPageTitle.contains("Fund Transfer details")) {
+		
+		System.out.println("Funds have been transferred");
+	}
+	else {
+		throw new NullPointerException("No Transfer done");
+	}
+}
+	
+	
+// Logout cucumber shells
+@Then("user can logout")
+public void user_can_logout() {
+	logoutpage.clickOnLogoutButton();
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 	
 	@Then("user closes the browser")

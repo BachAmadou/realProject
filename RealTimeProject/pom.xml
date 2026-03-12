@@ -85,6 +85,43 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
+    
+    <!-- The following 6 dependencies are for extend report, which give more better view or better looking fields for the report -->
+    <dependency>
+	    <groupId>tech.grasshopper</groupId>
+	    <artifactId>extent-excel-report</artifactId>
+	    <version>1.4.0</version>
+	</dependency>
+		
+	<dependency>
+	    <groupId>com.aventstack</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>5.1.0</version>
+	</dependency>
+		
+	<dependency>
+	    <groupId>tech.grasshopper</groupId>
+	    <artifactId>extentreports-cucumber7-adapter</artifactId>
+	    <version>1.14.0</version>
+	</dependency>
+	    
+	    <dependency>
+	    <groupId>tech.grasshopper</groupId>
+	    <artifactId>extent-excel-report</artifactId>
+	    <version>1.4.0</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.aventstack</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>5.1.0</version>
+	</dependency>
+		
+	<dependency>
+	    <groupId>tech.grasshopper</groupId>
+	    <artifactId>extentreports-cucumber7-adapter</artifactId>
+	    <version>1.14.0</version>
+	</dependency>
   </dependencies>
 
   <build>

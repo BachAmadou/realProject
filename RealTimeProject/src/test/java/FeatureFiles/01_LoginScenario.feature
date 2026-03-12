@@ -8,7 +8,7 @@ Feature: Login Feature
     And user enters the password as "<password>"
     When user clicks on the login button
     Then validate user will be navigated to the homepage
-    And user closes the browser
+   #And user closes the browser
 
     Examples: 
       | username   | password |

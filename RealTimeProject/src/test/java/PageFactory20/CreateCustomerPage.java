@@ -22,43 +22,43 @@ public class CreateCustomerPage {
 	@FindBy(xpath = "//*[text() = 'New Customer']")
 	WebElement newCustLink;
 	
-	@FindBy(xpath = "//input[@name() = 'name']")
+	@FindBy(xpath = "//input[@name = 'name']")
 	WebElement Cust_name;
 	
-	@FindBy(xpath = "//input[@value() = 'm']")
+	@FindBy(xpath = "//input[@value = 'm']")
 	WebElement Gender;
 	
-	@FindBy(xpath = "//input[@name() = 'dob']")
+	@FindBy(id = "dob")
 	WebElement Dob;
 	
-	@FindBy(xpath = "//textarea[@name() = 'addr']")
+	@FindBy(xpath = "//textarea[@name = 'addr']")
 	WebElement Address;
 	
-	@FindBy(xpath = "//input[@name() = 'city']")
+	@FindBy(xpath = "//input[@name = 'city']")
 	WebElement City;
 	
-	@FindBy(xpath = "//input[@name() = 'state']")
+	@FindBy(xpath = "//input[@name = 'state']")
 	WebElement State;
 	
-	@FindBy(xpath = "//input[@name() = 'pinno']")
+	@FindBy(xpath = "//input[@name = 'pinno']")
 	WebElement Pin;
 	
-	@FindBy(xpath = "//input[@name() = 'telephoneno']")
+	@FindBy(xpath = "//input[@name = 'telephoneno']")
 	WebElement Mobile;
 	
-	@FindBy(xpath = "//input[@name() = 'emailid']")
+	@FindBy(xpath = "//input[@name = 'emailid']")
 	WebElement Email;
 	
-	@FindBy(xpath = "//input[@name() = 'password']")
+	@FindBy(xpath = "//input[@name = 'password']")
 	WebElement Password;
 	
-	@FindBy(xpath = "//input[@name() = 'submit']")
+	@FindBy(xpath = "//input[@type = 'submit']")
 	WebElement Submit;
 	
-	@FindBy(xpath = "//*[test() = 'Customer ID']")
+	@FindBy(xpath = "//*[text() = 'Customer ID']")
 	WebElement CustID;
 	
-	@FindBy(xpath = "//*[test() = 'Customer ID']//following-sibling::td")
+	@FindBy(xpath = "//*[text() = 'Customer ID']//following-sibling::td")
 	WebElement CustIDval;
 	
 	
