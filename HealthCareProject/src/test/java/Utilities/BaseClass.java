@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +17,14 @@ public class BaseClass {
 	
 	@BeforeMethod(alwaysRun=true)
 	public void launchBrowser() throws IOException {
+		
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("--disable-notifications");
+		opt.addArguments("--disable-save-password-bubble");
+		opt.addArguments("--disable-password-generation");
+		opt.addArguments("--disable-feature-PasswordLeakDetection");
+		opt.addArguments("--incognito");
+		opt.addArguments("--headless-new");
 		
 		String URL = FetchDataFromProperty.getDataFromProperty().getProperty("url");
 		String browserName = FetchDataFromProperty.getDataFromProperty().getProperty("browser");

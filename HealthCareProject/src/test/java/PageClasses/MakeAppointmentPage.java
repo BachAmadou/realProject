@@ -19,8 +19,14 @@ public class MakeAppointmentPage extends BaseClass {
 	}
 	
 	public static By formGroup() {
-		return By.xpath("(//*[@class= 'form-group'])[2]");
+		//return By.xpath("(//*[@class= 'form-group'])[2]");
+		// click date field
+		driver.findElement(MakeAppointmentPage.visitDate()).click();
+
+		// select a day (example: 15)
+		return By.xpath("//td[text()='15']");
 	}
+	
 	
 	public static By commentField() {
 		return By.xpath("//*[@id = 'txt_comment']");

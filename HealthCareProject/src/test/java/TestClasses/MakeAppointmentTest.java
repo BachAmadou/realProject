@@ -3,10 +3,14 @@ package TestClasses;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import PageClasses.MakeAppointmentPage;
 import Utilities.BaseClass;
+import Utilities.ListenerImplementation;
+
+@Listeners(ListenerImplementation.class)
 
 public class MakeAppointmentTest extends BaseClass{
 	
@@ -20,13 +24,13 @@ public class MakeAppointmentTest extends BaseClass{
 			};
 	}
 	
-	@Test(dataProvider="bookAppointment")
-	public void createAppointment(String date, String comment) throws InterruptedException {
+	@Test(dataProvider="bookAppointment", retryAnalyzer=Utilities.RetryAnalyzer.class)
+	public static void createAppointment(String date, String comment) throws InterruptedException {
 		
 		LoginTest.executeLogin();
 		//driver.findElement(MakeAppointmentPage.clickMakeAppointmentButton()).click();
-		scrollDown();
-		Thread.sleep(3000);
+		//scrollDown();
+		//Thread.sleep(3000);
 		WebElement ele = driver.findElement(MakeAppointmentPage.facility());
 		Select facilitySelect = new Select(ele);
 		facilitySelect.selectByIndex(0);;
